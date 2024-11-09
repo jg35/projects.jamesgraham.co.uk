@@ -1,3 +1,20 @@
+function randomizeUrl(url: string) {
+  const minWidth = 300;
+  const minHeight = 200;
+  const maxWidth = 1600;
+  const maxHeight = 900;
+
+  const randomWidth =
+    Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+  const randomHeight =
+    Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
+
+  const newUrl = url
+    .replace(/1600/, randomWidth.toString())
+    .replace(/900/, randomHeight.toString());
+  return newUrl;
+}
+
 const projectData = [
   {
     id: 1,
@@ -7,12 +24,42 @@ const projectData = [
     stage: "SHIPPED",
     status: "OFFLINE",
     description:
-      "A memoir writing app that help users write and share their life stories.",
+      "A memoir writing app that help users write and share their life stories",
     assets: [
       {
         placement: "card",
         type: "image",
         url: "/stories-to-tell-card.png",
+        title: "Stories To Tell editor",
+      },
+      {
+        placement: "gallery",
+        type: "image",
+        url: randomizeUrl("https://placecats.com/1600/900"),
+        title: "Stories To Tell editor",
+      },
+      {
+        placement: "gallery",
+        type: "image",
+        url: randomizeUrl("https://placecats.com/1600/900"),
+        title: "Stories To Tell editor",
+      },
+      {
+        placement: "gallery",
+        type: "image",
+        url: randomizeUrl("https://placecats.com/1600/900"),
+        title: "Stories To Tell editor",
+      },
+      {
+        placement: "gallery",
+        type: "image",
+        url: randomizeUrl("https://placecats.com/1600/900"),
+        title: "Stories To Tell editor",
+      },
+      {
+        placement: "gallery",
+        type: "image",
+        url: randomizeUrl("https://placecats.com/1600/900"),
         title: "Stories To Tell editor",
       },
     ],
@@ -36,6 +83,8 @@ const projectData = [
         gradient: "#F2F2F0",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 2,
@@ -66,6 +115,8 @@ const projectData = [
         gradient: "",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 3,
@@ -96,6 +147,8 @@ const projectData = [
         gradient: "",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 4,
@@ -127,6 +180,8 @@ const projectData = [
         gradient: "",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 5,
@@ -157,6 +212,8 @@ const projectData = [
         gradient: "#F2FFF4",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 6,
@@ -187,6 +244,8 @@ const projectData = [
         gradient: "#B8CFDE",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
   {
     id: 7,
@@ -217,6 +276,8 @@ const projectData = [
         gradient: "",
       },
     },
+    favoriteFeatures: [],
+    learnings: [],
   },
 ];
 

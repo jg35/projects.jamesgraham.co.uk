@@ -11,16 +11,15 @@
   }
 }
 
-.page {
+.fade-in {
   animation: fadeIn 0.5s;
 }
 
 .speech-bubble::after {
   content: "";
   position: absolute;
-  right: -10px;
-  top: 30%;
-  transform-origin: top left;
+  right: -5px;
+  top: 15px;
   width: 0;
   height: 0;
   border: 10px solid transparent;
@@ -28,4 +27,22 @@
   border-left: 0;
   border-top: 0;
   rotate: 45deg;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }

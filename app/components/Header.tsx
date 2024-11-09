@@ -8,6 +8,7 @@ function getTitle(path: string) {
   switch (path) {
     case "/":
       return "Projects";
+
     default:
       return path.slice(1).replaceAll("-", " ");
   }
@@ -33,6 +34,13 @@ function getMessage(path: string) {
           </>
         ),
       };
+    case "/gift-gatherer":
+      return {
+        id: path,
+        content:
+          "I built this as magazine articles about the best gifts were never that good, and everything else was just ads!",
+      };
+
     default:
       return {
         id: path,
@@ -47,6 +55,15 @@ export default function Header() {
   const title = getTitle(path);
 
   const message = getMessage(path);
+  let notification: HTMLAudioElement | null = null;
+  if (Audio) {
+    notification = new Audio("/notification.mp3");
+    notification.volume = 0.5;
+  }
+
+  useEffect(() => {
+    setShowFace(false);
+  }, [path]);
 
   useEffect(() => {
     const showTimeout = setTimeout(() => {
@@ -55,11 +72,15 @@ export default function Header() {
       );
       if (viewedMessages.includes(message.id)) return;
       setShowFace(true);
+      if (navigator.userActivation.isActive && notification) {
+        notification.play();
+      }
       viewedMessages.push(message.id);
       sessionStorage.setItem("viewedMessages", JSON.stringify(viewedMessages));
     }, 1000);
-    const hideTimeout = setTimeout(() => setShowFace(false), 6000);
+    const hideTimeout = setTimeout(() => setShowFace(false), 10000);
     return () => {
+      setShowFace(false);
       clearTimeout(showTimeout);
       clearTimeout(hideTimeout);
     };
@@ -71,7 +92,7 @@ export default function Header() {
         {path !== "/" && (
           <Link
             href="/"
-            className="uppercase font-bold text-sm flex items-center"
+            className="uppercase font-bold text-sm flex items-center underline underline-offset-4 hover:no-underline"
           >
             <span className="hidden sm:inline">Back to Projects</span>
             <span className="sm:hidden">Home</span>
@@ -82,21 +103,22 @@ export default function Header() {
       <h1 className="font-bold text-3xl uppercase">{title}</h1>
 
       <div
-        className={`relative rounded-full border-4 border-white w-16 h-16 shadow transition-all group ${
+        className={`z-20 relative rounded-full border-4 border-neutral-100 w-16 h-16 shadow-md transition-all group ${
           showFace
-            ? "rotate-12 border-blue-500"
-            : "hover:rotate-12 hover:border-blue-500"
+            ? "rotate-12 border-orange-200"
+            : "hover:rotate-12 hover:border-orange-200"
         } `}
       >
         <Image src="/me.png" alt="James Graham" width={425} height={425} />
         <div
-          className={`border absolute w-60 -rotate-12 bg-white touch-none opacity-0 rounded-lg transition-all top-8 -left-64 p-2 text-black text-xs speech-bubble ${
+          className={`border absolute w-60 -rotate-12 bg-white touch-none opacity-0 rounded-lg transition-all -left-64 p-2 text-black text-xs speech-bubble ${
             showFace
               ? "touch-auto opacity-100 bg-gray-50 shadow"
               : "group-hover:touch-auto group-hover:opacity-100 group-hover:bg-gray-50 group-hover:shadow"
           }
 
           }`}
+          style={{ top: "60%" }}
         >
           {message.content}
         </div>
