@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/app/components/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const RobotoMono = Roboto_Mono({
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className={RobotoMono.className}>
+      <body className="font-mono antialiased text-black p-4 max-w-screen-2xl mx-auto">
+        <Header />
+        <main>{children}</main>
+        <footer className="text-center fixed bottom-2 w-full text-xs">
+          <span>© 2024 James Graham</span>
+        </footer>
       </body>
     </html>
   );
