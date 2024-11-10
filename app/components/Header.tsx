@@ -42,7 +42,7 @@ export default function Header() {
   }, [path, message.id, notification]);
 
   return (
-    <header className="relative flex justify-between items-center mb-1 max-w-screen-2xl w-full mx-auto p-4">
+    <header className="relative flex justify-between items-center mb-1 max-w-screen-2xl w-full mx-auto p-4 ">
       <div>
         {path !== "/" && (
           <Link
