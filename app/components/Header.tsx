@@ -4,51 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function getTitle(path: string) {
-  switch (path) {
-    case "/":
-      return "Projects";
-
-    default:
-      return path.slice(1).replaceAll("-", " ");
-  }
-}
-
-function getMessage(path: string) {
-  switch (path) {
-    case "/":
-      return {
-        id: path,
-        content: (
-          <>
-            Hey! {"I'm "}
-            <Link
-              href="http://linkedin.com/in/jamesgraham10"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              James
-            </Link>
-            . This is a selection of projects I've worked on over the last few
-            years. Click on one to learn more...
-          </>
-        ),
-      };
-    case "/gift-gatherer":
-      return {
-        id: path,
-        content:
-          "I built this as magazine articles about the best gifts were never that good, and everything else was just ads!",
-      };
-
-    default:
-      return {
-        id: path,
-        content: "hey!",
-      };
-  }
-}
-
 export default function Header() {
   const [showFace, setShowFace] = useState(false);
   const path = usePathname();
@@ -84,10 +39,10 @@ export default function Header() {
       clearTimeout(showTimeout);
       clearTimeout(hideTimeout);
     };
-  }, [path, message.id]);
+  }, [path, message.id, notification]);
 
   return (
-    <header className="relative flex justify-between items-center mb-12">
+    <header className="relative flex justify-between items-center mb-1 max-w-screen-2xl w-full mx-auto p-4">
       <div>
         {path !== "/" && (
           <Link
@@ -105,8 +60,8 @@ export default function Header() {
       <div
         className={`z-20 relative rounded-full border-4 border-neutral-100 w-16 h-16 shadow-md transition-all group ${
           showFace
-            ? "rotate-12 border-orange-200"
-            : "hover:rotate-12 hover:border-orange-200"
+            ? "rotate-12 border-blue-400"
+            : "hover:rotate-12 hover:border-blue-400"
         } `}
       >
         <Image src="/me.png" alt="James Graham" width={425} height={425} />
@@ -125,4 +80,49 @@ export default function Header() {
       </div>
     </header>
   );
+}
+
+function getTitle(path: string) {
+  switch (path) {
+    case "/":
+      return "Projects";
+
+    default:
+      return path.slice(1).replaceAll("-", " ");
+  }
+}
+
+function getMessage(path: string) {
+  switch (path) {
+    case "/":
+      return {
+        id: path,
+        content: (
+          <>
+            Hey! {"I'm "}
+            <Link
+              href="https://linkedin.com/in/jamesgraham10"
+              target="_blank"
+              className="text-blue-500 underline"
+            >
+              James
+            </Link>
+            . This is a selection of projects I've worked on over the last few
+            years. Click on one to learn more...
+          </>
+        ),
+      };
+    case "/gift-gatherer":
+      return {
+        id: path,
+        content:
+          "I built this as magazine articles about the best gifts were never that good, and everything else was just ads!",
+      };
+
+    default:
+      return {
+        id: path,
+        content: "hey!",
+      };
+  }
 }

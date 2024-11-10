@@ -15,6 +15,8 @@ function randomizeUrl(url: string) {
   return newUrl;
 }
 
+export type Project = (typeof projectData)[0];
+
 const projectData = [
   {
     id: 1,
