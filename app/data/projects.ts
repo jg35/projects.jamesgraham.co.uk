@@ -80,7 +80,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "#F2F2F0",
+        gradient: "#efefeb",
       },
     },
     favoriteFeatures: [],
@@ -96,10 +96,10 @@ const projectData = [
     description: "Spotify playlist generator for indie gig goers in London",
     assets: [
       {
-        placement: "",
-        type: "",
-        url: "",
-        title: "",
+        placement: "card",
+        type: "image",
+        url: "/gigscout-card.png",
+        title: "Gigscout Homescreen",
       },
     ],
     technologies: ["Node.js", "Firebase", "Spotify API"],
@@ -112,39 +112,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "",
-      },
-    },
-    favoriteFeatures: [],
-    learnings: [],
-  },
-  {
-    id: 3,
-    title: "Gift Gatherer",
-    startDate: "2018-11-21",
-    endDate: "2018-12-30",
-    stage: "SHIPPED",
-    status: "OFFLINE",
-    description: "Gift discovery website for friends and family",
-    assets: [
-      {
-        placement: "",
-        type: "",
-        url: "",
-        title: "",
-      },
-    ],
-    technologies: ["Vue.js", "Electron", "Feathers", "MongoDB"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
-    styles: {
-      colors: {
-        gradient: "",
+        gradient: "#f4fbf2",
       },
     },
     favoriteFeatures: [],
@@ -158,13 +126,13 @@ const projectData = [
     stage: "DEV",
     status: "OFFLINE",
     description:
-      "Recipe discovery platform for ingredients that you already have",
+      "Recipe discovery platform for ingredients that you already have at home",
     assets: [
       {
-        placement: "",
-        type: "",
-        url: "",
-        title: "",
+        placement: "card",
+        type: "image",
+        url: "/cook-it-card.png",
+        title: "Choose ingredients screen",
       },
     ],
     technologies: ["Vue.js", "Feathers", "MongoDB"],
@@ -177,7 +145,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "",
+        gradient: "#eaf2f8",
       },
     },
     favoriteFeatures: [],
@@ -209,7 +177,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "#F2FFF4",
+        gradient: "#eaf2f8",
       },
     },
     favoriteFeatures: [],
@@ -241,7 +209,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "#B8CFDE",
+        gradient: "#f3f4f6",
       },
     },
     favoriteFeatures: [],
@@ -257,10 +225,10 @@ const projectData = [
     description: "Himilayan inspired todo app",
     assets: [
       {
-        placement: "",
-        type: "",
-        url: "",
-        title: "",
+        placement: "card",
+        type: "image",
+        url: "/sherpa-card.png",
+        title: "Sherpa todo list",
       },
     ],
     technologies: ["AngularJS", "Express", "MongoDB"],
@@ -273,7 +241,7 @@ const projectData = [
     ],
     styles: {
       colors: {
-        gradient: "",
+        gradient: "#EAF5F7",
       },
     },
     favoriteFeatures: [],

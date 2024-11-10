@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ProjectStageChip from "./components/ProjectStageChip";
 import { projects, getProjectSlug } from "./data/projects";
 import Link from "next/link";
@@ -5,12 +6,12 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="fade-in">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
         {projects.map((project) => {
           const projectSlug = getProjectSlug(project.title);
-          // const image = project.assets.find(
-          //   (asset) => asset.placement === "card"
-          // );
+          const image = project.assets.find(
+            (asset) => asset.placement === "card"
+          );
 
           return (
             <Link href={projectSlug} key={project.id} className="flex h-full">
@@ -25,8 +26,19 @@ export default function Home() {
                   </span>
                   <div className="flex-1 pl-2 h-full flex flex-col">
                     <div className="overflow-hidden relative h-52 sm:h-60 flex flex-col">
-                      <h2 className="font-bold my-2">{project.title}</h2>
-                      <ProjectStageChip stage={project.stage} />
+                      <div className="z-10 flex justify-between items-center pr-2">
+                        <h2 className="font-bold my-2">{project.title}</h2>
+                        <ProjectStageChip stage={project.stage} />
+                      </div>
+                      {image && (
+                        <Image
+                          className="project-card-image object-cover w-full h-full opacity-75 transition-all"
+                          src={image.url}
+                          alt={image.title}
+                          width={500}
+                          height={250}
+                        />
+                      )}
                     </div>
                     <p className="py-3 text-sm sm:text-base">
                       {project.description}
@@ -40,7 +52,7 @@ export default function Home() {
                       ))}
                     </p>
                   </div>
-                  <div className="w-8 h-auto relative border-l group-hover:bg-black group-hover:text-white">
+                  <div className="w-8 h-auto relative border-l border-gray-300 group-hover:bg-black group-hover:text-white">
                     <span className="w-24 rotate-90 origin-left text-nowrap flex translate-x-4 uppercase tracking-widest font-medium text-sm">
                       view more
                     </span>
