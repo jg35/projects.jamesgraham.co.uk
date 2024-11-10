@@ -19,7 +19,7 @@ export default function Home() {
                 className={`border p-2 bg-white w-full transition-all hover:cursor-pointer shadow-md hover:shadow-xl group`}
               >
                 <div
-                  className={`flex justify-between bg-gradient-to-r from-gray-50 to-${projectSlug}-gradient relative h-full`}
+                  className={`flex justify-between bg-gradient-to-r from-white to-gray-50 relative h-full`}
                 >
                   <span className="absolute -top-10 -left-1 font-bold">
                     {project.startDate.slice(0, 4)}
