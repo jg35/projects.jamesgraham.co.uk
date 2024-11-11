@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               </div>
               {image && (
                 <Image
-                  className="project-card-image object-cover w-full h-full md:opacity-65 transition-all duration-500 sm:group-hover:scale-105 sm:group-hover:opacity-100"
+                  className="project-card-image object-cover w-full h-full md:opacity-75 transition-all duration-500 sm:group-hover:scale-105 sm:group-hover:opacity-100"
                   src={image.url}
                   alt={image.title}
                   width={500}

@@ -29,20 +29,28 @@
   rotate: 45deg;
 }
 
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+.swiper-wrapper {
+  @apply flex !important;
+  @apply py-12 items-center;
+}
+
+.swiper-pagination {
+  @apply pt-4 pb-2 sticky bottom-0;
+}
+
+.swiper-pagination-bullet {
+  @apply h-3 w-3 !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-black !important;
 }
 
 .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
+  @apply flex !important;
+  @apply pb-12 justify-center;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
+  max-height: 65vh;
 }

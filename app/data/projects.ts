@@ -37,7 +37,7 @@ const projectData = [
       },
       ...mapProjectImages("Stories to tell", [
         { file: "01-dashboard-desktop.png", title: "Dashboard screen" },
-        { file: "02-dashboard-mobile.png", title: "Dashboard - mobile" },
+        // { file: "02-dashboard-mobile.png", title: "Dashboard - mobile" },
         { file: "03-edit.png", title: "Edit screen" },
         { file: "04-publish.png", title: "Publish - cover designer screen" },
         { file: "05-onboarding.png", title: "Onboarding - details screen" },

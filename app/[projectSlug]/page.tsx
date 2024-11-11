@@ -32,6 +32,7 @@ export default async function ProjectPage({
         <span className="font-bold">TLDR: </span>
         {project.description}
       </p>
+
       <p className="mb-4">
         <span className="font-bold">Dev time: </span>
         {monthsWorked} month{monthsWorked > 1 ? "s" : ""}
@@ -40,13 +41,14 @@ export default async function ProjectPage({
         <span className="font-bold">Tech used: </span>
         {project.technologies.join(", ")}
       </p>
+
+      <Gallery images={gallery} projectRef={project.title} />
+
       {project.links.length ? (
         <h2 className="uppercase font-bold text-xl text-black mt-12 mb-4">
           Links
         </h2>
       ) : null}
-
-      <Gallery images={gallery} projectRef={project.title} />
 
       {project.favoriteFeatures.length ? (
         <h2 className="uppercase font-bold text-xl text-black mt-12 mb-4">
