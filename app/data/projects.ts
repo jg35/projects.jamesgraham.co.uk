@@ -1,18 +1,19 @@
-function randomizeUrl(url: string) {
-  const minWidth = 300;
-  const minHeight = 200;
-  const maxWidth = 1600;
-  const maxHeight = 900;
+function getProjectImgUrl(projectName: string, fileName: string) {
+  return `/projects/${projectName
+    .toLowerCase()
+    .replaceAll(" ", "-")}/${fileName}`;
+}
 
-  const randomWidth =
-    Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
-  const randomHeight =
-    Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
-
-  const newUrl = url
-    .replace(/1600/, randomWidth.toString())
-    .replace(/900/, randomHeight.toString());
-  return newUrl;
+function mapProjectImages(
+  projectName: string,
+  images: { file: string; title: string }[]
+) {
+  return images.map(({ file, title }) => ({
+    placement: "gallery",
+    type: "image",
+    url: getProjectImgUrl(projectName, file),
+    title,
+  }));
 }
 
 export type Project = (typeof projectData)[0];
@@ -31,39 +32,20 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/stories-to-tell-card.png",
+        url: getProjectImgUrl("stories to tell", "stories-to-tell-card.png"),
         title: "Stories To Tell editor",
       },
-      {
-        placement: "gallery",
-        type: "image",
-        url: randomizeUrl("https://placecats.com/1600/900"),
-        title: "Stories To Tell editor",
-      },
-      {
-        placement: "gallery",
-        type: "image",
-        url: randomizeUrl("https://placecats.com/1600/900"),
-        title: "Stories To Tell editor",
-      },
-      {
-        placement: "gallery",
-        type: "image",
-        url: randomizeUrl("https://placecats.com/1600/900"),
-        title: "Stories To Tell editor",
-      },
-      {
-        placement: "gallery",
-        type: "image",
-        url: randomizeUrl("https://placecats.com/1600/900"),
-        title: "Stories To Tell editor",
-      },
-      {
-        placement: "gallery",
-        type: "image",
-        url: randomizeUrl("https://placecats.com/1600/900"),
-        title: "Stories To Tell editor",
-      },
+      ...mapProjectImages("Stories to tell", [
+        { file: "01-dashboard-desktop.png", title: "Dashboard screen" },
+        { file: "02-dashboard-mobile.png", title: "Dashboard - mobile" },
+        { file: "03-edit.png", title: "Edit screen" },
+        { file: "04-publish.png", title: "Publish - cover designer screen" },
+        { file: "05-onboarding.png", title: "Onboarding - details screen" },
+        { file: "06-onboarding-tutorial.png", title: "Onboarding - tutorial" },
+        { file: "07-privacy-settings.png", title: "Privacy settings screen" },
+        { file: "08-billing-settings.png", title: "Billing settings screen" },
+        { file: "09-account-deletion.png", title: "Account deletion screen" },
+      ]),
     ],
     technologies: [
       "Hasura",
@@ -100,9 +82,20 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/gigscout-card.png",
+        url: getProjectImgUrl("gigscout", "gigscout-card.png"),
         title: "Gigscout Homescreen",
       },
+      ...mapProjectImages("Gigscout", [
+        { file: "gigscout-desktop-design.png", title: "Listings overview" },
+        {
+          file: "gigscout-mobile-design-listings-overview.png",
+          title: "Listings overview - mobile",
+        },
+        {
+          file: "gigscout-mobile-design-venue-overview.png",
+          title: "Listing details - mobile",
+        },
+      ]),
     ],
     technologies: ["Node.js", "Firebase", "Spotify API"],
     links: [
@@ -133,9 +126,20 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/cook-it-card.png",
+        url: getProjectImgUrl("cook it", "cook-it-card.png"),
         title: "Choose ingredients screen",
       },
+      ...mapProjectImages("Cook it", [
+        { file: "01-splash.png", title: "Splash screen" },
+        {
+          file: "02-sign-up.png",
+          title: "Sign up screen",
+        },
+        { file: "03-onboarding-step-1.png", title: "Onboarding - Step 1" },
+        { file: "04-onboarding-step-2.png", title: "Onboarding - Step 2" },
+        { file: "05-recipe-listings.png", title: "Recipe listings screen" },
+        { file: "06-recipe-details.png", title: "Recipe details screen" },
+      ]),
     ],
     technologies: ["Vue.js", "Feathers", "MongoDB"],
     links: [
@@ -165,9 +169,17 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/tripnotes-card.png",
+        url: getProjectImgUrl("tripnotes", "tripnotes-card.png"),
         title: "Tripnotes splash screen",
       },
+      ...mapProjectImages("Tripnotes", [
+        { file: "01-feed-following.png", title: "Feed - followed trips" },
+        { file: "02-explore.png", title: "Explore trips" },
+        { file: "03-trip-overview.png", title: "Trip overview screen" },
+        { file: "04-my-account.png", title: "My account screen" },
+        { file: "05-my-profile.png", title: "My profile screen" },
+        { file: "06-my-trips.png", title: "My trips screen" },
+      ]),
     ],
     technologies: ["AngularJS", "Express", "MongoDB"],
     links: [
@@ -197,9 +209,18 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/football-planner-card.png",
+        url: getProjectImgUrl("football planner", "football-planner-card.png"),
         title: "Football Planner dashboard",
       },
+      ...mapProjectImages("Football Planner", [
+        { file: "01-dashboard.png", title: "Dashboard screen" },
+        { file: "02-dashboard-mobile.png", title: "Dashboard - mobile" },
+        {
+          file: "03-admin-approve-listing.png",
+          title: "Admin - approve listing",
+        },
+        { file: "04-admin-edit-team.png", title: "Admin - edit team" },
+      ]),
     ],
     technologies: ["Laravel", "Vue.js", "MySQL"],
     links: [
@@ -229,9 +250,18 @@ const projectData = [
       {
         placement: "card",
         type: "image",
-        url: "/sherpa-card.png",
+        url: getProjectImgUrl("sherpa", "sherpa-card.png"),
         title: "Sherpa todo list",
       },
+      ...mapProjectImages("Sherpa", [
+        {
+          file: "01-sherpa-chrome-store.png",
+          title: "Sherpa Chrome store listing",
+        },
+        { file: "02-auth-screen.png", title: "Auth screen" },
+        { file: "03-todo-list-1.png", title: "Todo list 1" },
+        { file: "04-todo-list-2.png", title: "Todo list 2" },
+      ]),
     ],
     technologies: ["AngularJS", "Express", "MongoDB"],
     links: [
