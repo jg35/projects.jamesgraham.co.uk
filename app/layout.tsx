@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={RobotoMono.className}>
       <body className="font-mono antialiased text-black min-h-screen flex flex-col relative">
         <Header />
-        <main className="mb-12 w-full max-w-screen-2xl mx-auto p-4">
+        <main className="mb-12 w-full max-w-screen-2xl mx-auto px-4 pt-4">
           {children}
         </main>
 

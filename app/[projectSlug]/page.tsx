@@ -45,14 +45,14 @@ export default async function ProjectPage({
       </p>
 
       {project.links.length ? (
-        <ul className="flex mb-4">
+        <ul className="flex mb-4 overflow-x-scroll">
           {project.links.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 target="_blank"
                 title={link.description}
-                className="flex flex-wrap items-center text-sm mr-4 bg-black text-white py-1 px-2 shadow hover:underline hover:shadow-lg"
+                className="flex items-center text-sm mr-4 bg-black text-white py-1 px-2 shadow hover:underline hover:shadow-lg text-nowrap"
               >
                 <span className="size-4 mr-2">
                   <GithubIcon />

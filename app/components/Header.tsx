@@ -25,7 +25,7 @@ export default function Header() {
       viewedMessages.push(message.id);
       sessionStorage.setItem("viewedMessages", JSON.stringify(viewedMessages));
     }, 1000);
-    const hideTimeout = setTimeout(() => setShowFace(false), 10000);
+    const hideTimeout = setTimeout(() => setShowFace(false), 5000);
     return () => {
       setShowFace(false);
       clearTimeout(showTimeout);
@@ -47,10 +47,10 @@ export default function Header() {
         )}
       </div>
 
-      <h1 className="font-bold text-3xl uppercase">{title}</h1>
+      <h1 className="font-bold text-xl md:text-3xl uppercase">{title}</h1>
 
       <div
-        className={`z-20 relative rounded-full border-4 border-neutral-100 w-16 h-16 shadow-md transition-all group ${
+        className={`z-20 relative rounded-full border-4 border-neutral-100 w-12 h-12 sm:w-16 sm:h-16 shadow-md transition-all group ${
           showFace
             ? "rotate-12 border-blue-400"
             : "hover:rotate-12 hover:border-blue-400"
@@ -96,7 +96,7 @@ function getMessage() {
         >
           James
         </Link>
-        . These are a selection of projects I&lpos;ve built over the last few
+        . These are a selection of projects I&apos;ve built over the last few
         years. Click on one to learn more...
       </>
     ),
