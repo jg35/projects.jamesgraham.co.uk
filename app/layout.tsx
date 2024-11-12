@@ -13,7 +13,7 @@ const RobotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "James Graham - Projects",
+  title: "Projects",
 };
 
 export default function RootLayout({

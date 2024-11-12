@@ -79,3 +79,18 @@ export default async function ProjectPage({
     </div>
   );
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ projectSlug: string }>;
+}) {
+  const slug = (await params).projectSlug;
+  const project = projects.find(
+    (project) => getProjectSlug(project.title) === slug
+  );
+  if (!project) return null;
+  return {
+    title: `Projects · ${project.title}`,
+  };
+}
