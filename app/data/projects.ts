@@ -57,9 +57,16 @@ const projectData = [
     ],
     links: [
       {
-        type: "",
-        href: "",
-        title: "",
+        type: "repo",
+        href: "https://github.com/jg35/stt-react-client",
+        title: "Stories To Tell - Editor",
+        description: "The main book creation tool",
+      },
+      {
+        type: "repo",
+        href: "https://github.com/jg35/stt-react-reader",
+        title: "Stories To Tell - Reader",
+        description: "Consumer-facing reader app",
       },
     ],
     styles: {
@@ -98,13 +105,7 @@ const projectData = [
       ]),
     ],
     technologies: ["Node.js", "Firebase", "Spotify API"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
+    links: [],
     styles: {
       colors: {
         gradient: "#f4fbf2",
@@ -117,7 +118,7 @@ const projectData = [
     id: 4,
     title: "Cook It",
     startDate: "2018-08-01",
-    endDate: "2018-08-27",
+    endDate: "2018-09-27",
     stage: "DEV",
     status: "OFFLINE",
     description:
@@ -142,13 +143,7 @@ const projectData = [
       ]),
     ],
     technologies: ["Vue.js", "Feathers", "MongoDB"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
+    links: [],
     styles: {
       colors: {
         gradient: "#eaf2f8",
@@ -182,13 +177,7 @@ const projectData = [
       ]),
     ],
     technologies: ["AngularJS", "Express", "MongoDB"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
+    links: [],
     styles: {
       colors: {
         gradient: "#eaf2f8",
@@ -223,13 +212,7 @@ const projectData = [
       ]),
     ],
     technologies: ["Laravel", "Vue.js", "MySQL"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
+    links: [],
     styles: {
       colors: {
         gradient: "#f3f4f6",
@@ -264,13 +247,7 @@ const projectData = [
       ]),
     ],
     technologies: ["AngularJS", "Express", "MongoDB"],
-    links: [
-      {
-        type: "",
-        href: "",
-        title: "",
-      },
-    ],
+    links: [],
     styles: {
       colors: {
         gradient: "#EAF5F7",

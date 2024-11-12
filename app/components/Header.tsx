@@ -9,12 +9,7 @@ export default function Header() {
   const path = usePathname();
   const title = getTitle(path);
 
-  const message = getMessage(path);
-  let notification: HTMLAudioElement | null = null;
-  if (Audio) {
-    notification = new Audio("/notification.mp3");
-    notification.volume = 0.5;
-  }
+  const message = getMessage();
 
   useEffect(() => {
     setShowFace(false);
@@ -27,9 +22,6 @@ export default function Header() {
       );
       if (viewedMessages.includes(message.id)) return;
       setShowFace(true);
-      if (navigator.userActivation.isActive && notification) {
-        notification.play();
-      }
       viewedMessages.push(message.id);
       sessionStorage.setItem("viewedMessages", JSON.stringify(viewedMessages));
     }, 1000);
@@ -39,7 +31,7 @@ export default function Header() {
       clearTimeout(showTimeout);
       clearTimeout(hideTimeout);
     };
-  }, [path, message.id, notification]);
+  }, [path, message.id]);
 
   return (
     <header className="relative flex justify-between items-center mb-1 max-w-screen-2xl w-full mx-auto p-4 ">
@@ -86,43 +78,27 @@ function getTitle(path: string) {
   switch (path) {
     case "/":
       return "Projects";
-
     default:
       return path.slice(1).replaceAll("-", " ");
   }
 }
 
-function getMessage(path: string) {
-  switch (path) {
-    case "/":
-      return {
-        id: path,
-        content: (
-          <>
-            Hey! {"I'm "}
-            <Link
-              href="https://linkedin.com/in/jamesgraham10"
-              target="_blank"
-              className="text-blue-500 underline"
-            >
-              James
-            </Link>
-            . This is a selection of projects I've worked on over the last few
-            years. Click on one to learn more...
-          </>
-        ),
-      };
-    case "/gift-gatherer":
-      return {
-        id: path,
-        content:
-          "I built this as magazine articles about the best gifts were never that good, and everything else was just ads!",
-      };
-
-    default:
-      return {
-        id: path,
-        content: "hey!",
-      };
-  }
+function getMessage() {
+  return {
+    id: "HOME",
+    content: (
+      <>
+        Hey! {"I'm "}
+        <Link
+          href="https://linkedin.com/in/jamesgraham10"
+          target="_blank"
+          className="text-blue-500 underline"
+        >
+          James
+        </Link>
+        . These are a selection of projects I&lpos;ve built over the last few
+        years. Click on one to learn more...
+      </>
+    ),
+  };
 }

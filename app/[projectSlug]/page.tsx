@@ -1,6 +1,8 @@
 import { getProjectSlug, projects } from "@/app/data/projects";
 import "swiper/css";
 import Gallery from "@/app/components/Gallery";
+import Link from "next/link";
+import GithubIcon from "../components/icons/Github";
 
 export default async function ProjectPage({
   params,
@@ -42,13 +44,27 @@ export default async function ProjectPage({
         {project.technologies.join(", ")}
       </p>
 
-      <Gallery images={gallery} projectRef={project.title} />
-
       {project.links.length ? (
-        <h2 className="uppercase font-bold text-xl text-black mt-12 mb-4">
-          Links
-        </h2>
+        <ul className="flex mb-4">
+          {project.links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                target="_blank"
+                title={link.description}
+                className="flex flex-wrap items-center text-sm mr-4 bg-black text-white py-1 px-2 shadow hover:underline hover:shadow-lg"
+              >
+                <span className="size-4 mr-2">
+                  <GithubIcon />
+                </span>
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       ) : null}
+
+      <Gallery images={gallery} projectRef={project.title} />
 
       {project.favoriteFeatures.length ? (
         <h2 className="uppercase font-bold text-xl text-black mt-12 mb-4">

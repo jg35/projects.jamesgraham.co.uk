@@ -6,6 +6,7 @@ export default function CodepenIcon() {
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="max-w-full max-h-full"
     >
       <path
         fillRule="evenodd"
