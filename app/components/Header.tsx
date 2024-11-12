@@ -25,7 +25,7 @@ export default function Header() {
       viewedMessages.push(message.id);
       sessionStorage.setItem("viewedMessages", JSON.stringify(viewedMessages));
     }, 1000);
-    const hideTimeout = setTimeout(() => setShowFace(false), 5000);
+    const hideTimeout = setTimeout(() => setShowFace(false), 8000);
     return () => {
       setShowFace(false);
       clearTimeout(showTimeout);
