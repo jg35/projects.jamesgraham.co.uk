@@ -1,21 +1,3 @@
-function getProjectImgUrl(projectName: string, fileName: string) {
-  return `/projects/${projectName
-    .toLowerCase()
-    .replaceAll(" ", "-")}/${fileName}`;
-}
-
-function mapProjectImages(
-  projectName: string,
-  images: { file: string; title: string }[]
-) {
-  return images.map(({ file, title }) => ({
-    placement: "gallery",
-    type: "image",
-    url: getProjectImgUrl(projectName, file),
-    title,
-  }));
-}
-
 export type Project = (typeof projectData)[0];
 
 const projectData = [
@@ -26,8 +8,7 @@ const projectData = [
     endDate: "2021-11-25",
     stage: "SHIPPED",
     status: "OFFLINE",
-    description:
-      "A memoir writing app that help users write and share their life stories",
+    description: "A publishing platform to write and share your life story",
     assets: [
       {
         placement: "card",
@@ -84,7 +65,8 @@ const projectData = [
     endDate: "2022-04-11",
     stage: "SHIPPED",
     status: "OFFLINE",
-    description: "Spotify playlist generator for indie gig goers in London",
+    description:
+      "Discover gigs in London through auto-generated Spotify playlists",
     assets: [
       {
         placement: "card",
@@ -122,7 +104,7 @@ const projectData = [
     stage: "DEV",
     status: "OFFLINE",
     description:
-      "Recipe discovery platform for ingredients that you already have at home",
+      "Discover and plan meals with ingredients you already have at home",
     assets: [
       {
         placement: "card",
@@ -159,7 +141,8 @@ const projectData = [
     endDate: "2016-09-01",
     stage: "DEV",
     status: "OFFLINE",
-    description: "Adventure blogging platform for backpacking enthusiasts",
+    description:
+      "Adventure-infused blogging platform for backpacking enthusiasts",
     assets: [
       {
         placement: "card",
@@ -277,3 +260,21 @@ export const getProjectColorSafelist = (prefix: string) => {
 export const getProjectSlug = (title: string) => {
   return title.toLowerCase().replaceAll(" ", "-");
 };
+
+function getProjectImgUrl(projectName: string, fileName: string) {
+  return `/projects/${projectName
+    .toLowerCase()
+    .replaceAll(" ", "-")}/${fileName}`;
+}
+
+function mapProjectImages(
+  projectName: string,
+  images: { file: string; title: string }[]
+) {
+  return images.map(({ file, title }) => ({
+    placement: "gallery",
+    type: "image",
+    url: getProjectImgUrl(projectName, file),
+    title,
+  }));
+}
