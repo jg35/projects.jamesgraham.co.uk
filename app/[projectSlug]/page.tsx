@@ -45,7 +45,7 @@ export default async function ProjectPage({
       </p>
 
       {project.links.length ? (
-        <ul className="flex mb-4 overflow-x-scroll">
+        <ul className="flex mb-4 overflow-x-auto">
           {project.links.map((link) => (
             <li key={link.href}>
               <Link
