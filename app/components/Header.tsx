@@ -39,11 +39,11 @@ export default function Header() {
 
   return (
     <header
-      className={`transition-all duration-200 mb-1 w-full bg-gray-50 z-20 sticky top-0 ${
-        showHeaderOnScrollUp ? "shadow border-none" : "-top-24"
+      className={`transition-all duration-200 sticky mb-1 w-full bg-gray-50 z-20 ${
+        showHeaderOnScrollUp ? "shadow top-0" : "-top-24"
       }`}
     >
-      <div className="flex justify-between items-center  max-w-screen-2xl mx-auto w-full p-4">
+      <div className="flex justify-between items-center  max-w-screen-2xl mx-auto w-full py-2 pl-4 pr-2">
         <div>
           {path !== "/" && (
             <Link
@@ -70,7 +70,7 @@ export default function Header() {
               ? "rotate-12 border-blue-400"
               : "hover:rotate-12 hover:border-blue-400"
           } ${
-            showHeaderOnScrollUp ? "size-8 sm:size-12 " : "size-12 sm:size-16 "
+            showHeaderOnScrollUp ? "size-8 sm:size-12" : "size-12 sm:size-16"
           }`}
         >
           <Image src="/me.png" alt="James Graham" width={425} height={425} />
