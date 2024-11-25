@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="sm:text-center w-full text-xs mt-auto bg-black text-white mx-auto p-4">
       <div className="flex sm:justify-center">
-        <SocialLink title="Github profile" href="https//www.github.com/jg35">
+        <SocialLink title="Github profile" href="https://www.github.com/jg35">
           <GithubIcon />
         </SocialLink>
         <SocialLink
